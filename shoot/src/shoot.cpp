@@ -25,7 +25,7 @@ private:
     float getPitch_maxV_high(float x_r_, float y_r_);    //最大速度で撃つときのピッチ角（高い方）
     float getPitch_maxV_low(float x_r_, float y_r_); //最大速度で撃つときのピッチ角（低い方）
 
-    // void calc_pose(float x_r, float y_r, float theta_l);     //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ
+    // void calc_pose(float x_r, float y_r, float theta_l);     //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ（感嘆）
 
     bool high_or_low;   //pitchがhighかlowかの確認
 
@@ -125,7 +125,7 @@ float Shoot::getPitch_maxV_low(float x_s_, float y_s_){
 // void Shoot::calc_pose(float x_r, float y_r, float theta_r){
 //     x_s = x_r - l_1*sin(theta_r) - l_2*sin(theta_yaw);
 //     y_s = y_r + l_1*cos(theta_r) - l_2*cos(theta_yaw);
-// }    //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ
+// }    //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ（感嘆）
 
 void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_pre, bool high_or_low){
 
