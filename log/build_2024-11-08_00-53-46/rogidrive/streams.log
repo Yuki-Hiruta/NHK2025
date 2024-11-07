@@ -1,0 +1,22 @@
+[0.873s] Invoking command in '/home/yuki/ros2_ws/src/NHK2025/rogidrive/rogidrive': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/rogidrive build --build-base /home/yuki/ros2_ws/src/NHK2025/build/rogidrive/build install --record /home/yuki/ros2_ws/src/NHK2025/build/rogidrive/install.log --single-version-externally-managed install_data
+[1.166s] running egg_info
+[1.166s] writing ../../build/rogidrive/rogidrive.egg-info/PKG-INFO
+[1.168s] writing dependency_links to ../../build/rogidrive/rogidrive.egg-info/dependency_links.txt
+[1.168s] writing entry points to ../../build/rogidrive/rogidrive.egg-info/entry_points.txt
+[1.168s] writing requirements to ../../build/rogidrive/rogidrive.egg-info/requires.txt
+[1.169s] writing top-level names to ../../build/rogidrive/rogidrive.egg-info/top_level.txt
+[1.170s] reading manifest file '../../build/rogidrive/rogidrive.egg-info/SOURCES.txt'
+[1.171s] writing manifest file '../../build/rogidrive/rogidrive.egg-info/SOURCES.txt'
+[1.172s] running build
+[1.172s] running build_py
+[1.172s] running install
+[1.172s] running install_lib
+[1.174s] running install_data
+[1.174s] running install_egg_info
+[1.176s] removing '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages/rogidrive-0.0.0-py3.10.egg-info' (and everything under it)
+[1.177s] Copying ../../build/rogidrive/rogidrive.egg-info to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages/rogidrive-0.0.0-py3.10.egg-info
+[1.178s] running install_scripts
+[1.200s] Installing rogidrive script to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/rogidrive
+[1.200s] Installing rogidrive_tester script to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/rogidrive
+[1.200s] writing list of installed files to '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/install.log'
+[1.214s] Invoked command in '/home/yuki/ros2_ws/src/NHK2025/rogidrive/rogidrive' returned '0': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/rogidrive build --build-base /home/yuki/ros2_ws/src/NHK2025/build/rogidrive/build install --record /home/yuki/ros2_ws/src/NHK2025/build/rogidrive/install.log --single-version-externally-managed install_data
