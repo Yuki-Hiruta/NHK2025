@@ -1,0 +1,21 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/shooter.dir/src/shoot.cpp.o[0m
+[100%] [32m[1mLinking CXX executable shooter[0m
+[100%] Built target shooter
+-- Install configuration: ""
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/lib/shoot/shooter
+-- Set non-toolchain portion of runtime path of "/home/yuki/ros2_ws/src/NHK2025/install/shoot/lib/shoot/shooter" to ""
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/package_run_dependencies/shoot
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/parent_prefix_path/shoot
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/ament_prefix_path.sh
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/ament_prefix_path.dsv
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/path.sh
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/path.dsv
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.bash
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.sh
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.zsh
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.dsv
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/package.dsv
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/packages/shoot
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/cmake/shootConfig.cmake
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/cmake/shootConfig-version.cmake
+-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/package.xml

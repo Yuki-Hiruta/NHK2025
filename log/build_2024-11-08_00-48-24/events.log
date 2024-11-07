@@ -1,0 +1,357 @@
+[0.000000] (-) TimerEvent: {}
+[0.001432] (rogidrive_msg) JobQueued: {'identifier': 'rogidrive_msg', 'dependencies': OrderedDict()}
+[0.001489] (rogidrive) JobQueued: {'identifier': 'rogidrive', 'dependencies': OrderedDict([('rogidrive_msg', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg')])}
+[0.001526] (shoot) JobQueued: {'identifier': 'shoot', 'dependencies': OrderedDict([('rogidrive_msg', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg')])}
+[0.001562] (rogidrive_msg) JobStarted: {'identifier': 'rogidrive_msg'}
+[0.021641] (rogidrive_msg) JobProgress: {'identifier': 'rogidrive_msg', 'progress': 'cmake'}
+[0.023290] (rogidrive_msg) JobProgress: {'identifier': 'rogidrive_msg', 'progress': 'build'}
+[0.024215] (rogidrive_msg) Command: {'cmd': ['/opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake', '--build', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg', '--', '-j2', '-l2'], 'cwd': '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg', 'env': OrderedDict([('LANGUAGE', 'en_US:'), ('USER', 'yuki'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yuki'), ('OLDPWD', '/home/yuki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1671'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yuki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yuki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/opt/st/stm32cubeclt_1.16.0:/opt/st/stm32cubeclt_1.16.0/STM32CubeProgrammer/bin:/opt/st/stm32cubeclt_1.16.0/STLink-gdb-server/bin:/opt/st/stm32cubeclt_1.16.0/CMake/bin:/opt/st/stm32cubeclt_1.16.0/Ninja/bin:/opt/st/stm32cubeclt_1.16.0/GNU-tools-for-STM32/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yuki-virtual-machine:@/tmp/.ICE-unix/1646,unix/yuki-virtual-machine:/tmp/.ICE-unix/1646'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/83345ea7_b1f9_43e2_ac02_ace17f95581d'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.OF0FW2'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.098141] (rogidrive_msg) StdoutLine: {'line': b'[  2%] Built target rogidrive_msg__cpp\n'}
+[0.100800] (-) TimerEvent: {}
+[0.101797] (rogidrive_msg) StdoutLine: {'line': b'[ 12%] Built target rogidrive_msg__rosidl_generator_c\n'}
+[0.145035] (rogidrive_msg) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_rogidrive_msg\n'}
+[0.148963] (rogidrive_msg) StdoutLine: {'line': b'[ 23%] Built target rogidrive_msg__rosidl_typesupport_fastrtps_cpp\n'}
+[0.176300] (rogidrive_msg) StdoutLine: {'line': b'[ 33%] Built target rogidrive_msg__rosidl_typesupport_introspection_c\n'}
+[0.182494] (rogidrive_msg) StdoutLine: {'line': b'[ 43%] Built target rogidrive_msg__rosidl_typesupport_c\n'}
+[0.200890] (-) TimerEvent: {}
+[0.226045] (rogidrive_msg) StdoutLine: {'line': b'[ 53%] Built target rogidrive_msg__rosidl_typesupport_cpp\n'}
+[0.233725] (rogidrive_msg) StdoutLine: {'line': b'[ 64%] Built target rogidrive_msg__rosidl_typesupport_introspection_cpp\n'}
+[0.289934] (rogidrive_msg) StdoutLine: {'line': b'[ 74%] Built target rogidrive_msg__rosidl_typesupport_fastrtps_c\n'}
+[0.301030] (-) TimerEvent: {}
+[0.339872] (rogidrive_msg) StdoutLine: {'line': b'[ 74%] Built target rogidrive_msg\n'}
+[0.399628] (rogidrive_msg) StdoutLine: {'line': b'[ 76%] Built target rogidrive_msg__py\n'}
+[0.401152] (-) TimerEvent: {}
+[0.468084] (rogidrive_msg) StdoutLine: {'line': b'[ 84%] Built target rogidrive_msg__rosidl_generator_py\n'}
+[0.501641] (-) TimerEvent: {}
+[0.508744] (rogidrive_msg) StdoutLine: {'line': b'[ 89%] Built target rogidrive_msg__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.550696] (rogidrive_msg) StdoutLine: {'line': b'[ 94%] Built target rogidrive_msg__rosidl_typesupport_introspection_c__pyext\n'}
+[0.603870] (-) TimerEvent: {}
+[0.628151] (rogidrive_msg) StdoutLine: {'line': b'[100%] Built target rogidrive_msg__rosidl_typesupport_c__pyext\n'}
+[0.704059] (-) TimerEvent: {}
+[0.712669] (rogidrive_msg) StdoutLine: {'line': b'running egg_info\n'}
+[0.713399] (rogidrive_msg) StdoutLine: {'line': b'writing rogidrive_msg.egg-info/PKG-INFO\n'}
+[0.714131] (rogidrive_msg) StdoutLine: {'line': b'writing dependency_links to rogidrive_msg.egg-info/dependency_links.txt\n'}
+[0.715202] (rogidrive_msg) StdoutLine: {'line': b'writing top-level names to rogidrive_msg.egg-info/top_level.txt\n'}
+[0.716626] (rogidrive_msg) StdoutLine: {'line': b"reading manifest file 'rogidrive_msg.egg-info/SOURCES.txt'\n"}
+[0.717310] (rogidrive_msg) StdoutLine: {'line': b"writing manifest file 'rogidrive_msg.egg-info/SOURCES.txt'\n"}
+[0.736010] (rogidrive_msg) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_rogidrive_msg_egg\n'}
+[0.748083] (rogidrive_msg) CommandEnded: {'returncode': 0}
+[0.804544] (-) TimerEvent: {}
+[0.907479] (-) TimerEvent: {}
+[1.008039] (-) TimerEvent: {}
+[1.018089] (rogidrive_msg) JobProgress: {'identifier': 'rogidrive_msg', 'progress': 'install'}
+[1.028245] (rogidrive_msg) Command: {'cmd': ['/opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake', '--install', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg'], 'cwd': '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg', 'env': OrderedDict([('LANGUAGE', 'en_US:'), ('USER', 'yuki'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yuki'), ('OLDPWD', '/home/yuki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1671'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yuki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yuki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/opt/st/stm32cubeclt_1.16.0:/opt/st/stm32cubeclt_1.16.0/STM32CubeProgrammer/bin:/opt/st/stm32cubeclt_1.16.0/STLink-gdb-server/bin:/opt/st/stm32cubeclt_1.16.0/CMake/bin:/opt/st/stm32cubeclt_1.16.0/Ninja/bin:/opt/st/stm32cubeclt_1.16.0/GNU-tools-for-STM32/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yuki-virtual-machine:@/tmp/.ICE-unix/1646,unix/yuki-virtual-machine:/tmp/.ICE-unix/1646'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/83345ea7_b1f9_43e2_ac02_ace17f95581d'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.OF0FW2'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive_msg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.031162] (rogidrive_msg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.031787] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/ament_index/resource_index/rosidl_interfaces/rogidrive_msg\n'}
+[1.032048] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.032130] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.032211] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rogidrive_message.h\n'}
+[1.032290] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rogidrive_multi_array.h\n'}
+[1.032373] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.033514] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__type_support.h\n'}
+[1.033623] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__type_support.h\n'}
+[1.033708] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__struct.h\n'}
+[1.033818] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__struct.h\n'}
+[1.034635] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__functions.h\n'}
+[1.034825] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__functions.c\n'}
+[1.034906] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__functions.h\n'}
+[1.034985] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__functions.c\n'}
+[1.035074] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.035152] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/library_path.sh\n'}
+[1.035232] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/library_path.dsv\n'}
+[1.035310] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_generator_c.so\n'}
+[1.039460] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.039971] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.040334] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.040475] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__rosidl_typesupport_fastrtps_c.h\n'}
+[1.040578] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__rosidl_typesupport_fastrtps_c.h\n'}
+[1.040665] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.040750] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_fastrtps_c.so\n'}
+[1.041382] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.042923] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.043085] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.043371] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__builder.hpp\n'}
+[1.043670] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__struct.hpp\n'}
+[1.045341] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__traits.hpp\n'}
+[1.045499] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__struct.hpp\n'}
+[1.045583] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__traits.hpp\n'}
+[1.046314] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__builder.hpp\n'}
+[1.046398] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rogidrive_message.hpp\n'}
+[1.046480] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rogidrive_multi_array.hpp\n'}
+[1.046572] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.047439] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.047697] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.048270] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.048358] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.048441] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/dds_fastrtps\n'}
+[1.048527] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.048616] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.048700] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.048935] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.049021] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.049108] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__type_support.c\n'}
+[1.049276] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__rosidl_typesupport_introspection_c.h\n'}
+[1.049373] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__rosidl_typesupport_introspection_c.h\n'}
+[1.049461] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__type_support.c\n'}
+[1.049547] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.052081] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_introspection_c.so\n'}
+[1.052470] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_c.so\n'}
+[1.052559] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg\n'}
+[1.053187] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg\n'}
+[1.053591] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail\n'}
+[1.053677] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__type_support.cpp\n'}
+[1.053801] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.053890] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_multi_array__type_support.cpp\n'}
+[1.053975] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/include/rogidrive_msg/rogidrive_msg/msg/detail/rogidrive_message__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.055918] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_introspection_cpp.so\n'}
+[1.057600] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_typesupport_cpp.so\n'}
+[1.059725] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/pythonpath.sh\n'}
+[1.059930] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/pythonpath.dsv\n'}
+[1.060018] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg-0.0.0-py3.10.egg-info\n'}
+[1.060712] (rogidrive_msg) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[1.061100] (rogidrive_msg) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[1.061202] (rogidrive_msg) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[1.061923] (rogidrive_msg) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[1.062804] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg\n'}
+[1.062895] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/_rogidrive_msg_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[1.063351] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.063464] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/_rogidrive_msg_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[1.064546] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.064632] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/_rogidrive_msg_s.ep.rosidl_typesupport_c.c\n'}
+[1.064716] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/librogidrive_msg__rosidl_generator_py.so\n'}
+[1.064830] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.064925] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg\n'}
+[1.065038] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg/_rogidrive_multi_array.py\n'}
+[1.065128] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg/_rogidrive_message.py\n'}
+[1.067126] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg/_rogidrive_message_s.c\n'}
+[1.068044] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg/_rogidrive_multi_array_s.c\n'}
+[1.068146] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg/__init__.py\n'}
+[1.068232] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/__init__.py\n'}
+[1.102056] (rogidrive_msg) StdoutLine: {'line': b"Listing '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg'...\n"}
+[1.102745] (rogidrive_msg) StdoutLine: {'line': b"Listing '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/msg'...\n"}
+[1.106732] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.108264] (-) TimerEvent: {}
+[1.109172] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.110590] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages/rogidrive_msg/rogidrive_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.113136] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib/librogidrive_msg__rosidl_generator_py.so\n'}
+[1.113267] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/msg/RogidriveMessage.idl\n'}
+[1.113357] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/msg/RogidriveMultiArray.idl\n'}
+[1.113441] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/msg/RogidriveMessage.msg\n'}
+[1.114242] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/msg/RogidriveMultiArray.msg\n'}
+[1.114623] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/ament_index/resource_index/package_run_dependencies/rogidrive_msg\n'}
+[1.115094] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/ament_index/resource_index/parent_prefix_path/rogidrive_msg\n'}
+[1.115241] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/ament_prefix_path.sh\n'}
+[1.115365] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/ament_prefix_path.dsv\n'}
+[1.115450] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/path.sh\n'}
+[1.116316] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/environment/path.dsv\n'}
+[1.116531] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/local_setup.bash\n'}
+[1.116988] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/local_setup.sh\n'}
+[1.117077] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/local_setup.zsh\n'}
+[1.117569] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/local_setup.dsv\n'}
+[1.117663] (rogidrive_msg) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/package.dsv\n'}
+[1.117743] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/ament_index/resource_index/packages/rogidrive_msg\n'}
+[1.117887] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_generator_cExport.cmake\n'}
+[1.117981] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.118064] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.118147] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.118243] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_generator_cppExport.cmake\n'}
+[1.120110] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.120322] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.121073] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.121185] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.121270] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_cExport.cmake\n'}
+[1.121354] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.121437] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.121524] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.122843] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_cppExport.cmake\n'}
+[1.122997] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msg__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.124331] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_generator_pyExport.cmake\n'}
+[1.124452] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/export_rogidrive_msg__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.124545] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rosidl_cmake-extras.cmake\n'}
+[1.124630] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[1.124734] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.124877] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.124961] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[1.125045] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[1.125131] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[1.125213] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msgConfig.cmake\n'}
+[1.125295] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake/rogidrive_msgConfig-version.cmake\n'}
+[1.125383] (rogidrive_msg) StdoutLine: {'line': b'-- Up-to-date: /home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/package.xml\n'}
+[1.129496] (rogidrive_msg) CommandEnded: {'returncode': 0}
+[1.210025] (-) TimerEvent: {}
+[1.311233] (-) TimerEvent: {}
+[1.412669] (-) TimerEvent: {}
+[1.449933] (rogidrive_msg) JobEnded: {'identifier': 'rogidrive_msg', 'rc': 0}
+[1.453478] (rogidrive) JobStarted: {'identifier': 'rogidrive'}
+[1.462903] (shoot) JobStarted: {'identifier': 'shoot'}
+[1.512900] (-) TimerEvent: {}
+[1.613497] (-) TimerEvent: {}
+[1.714388] (-) TimerEvent: {}
+[1.784487] (shoot) JobProgress: {'identifier': 'shoot', 'progress': 'cmake'}
+[1.792935] (shoot) JobProgress: {'identifier': 'shoot', 'progress': 'build'}
+[1.793029] (shoot) Command: {'cmd': ['/opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake', '--build', '/home/yuki/ros2_ws/src/NHK2025/build/shoot', '--', '-j2', '-l2'], 'cwd': '/home/yuki/ros2_ws/src/NHK2025/build/shoot', 'env': OrderedDict([('LANGUAGE', 'en_US:'), ('USER', 'yuki'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yuki'), ('OLDPWD', '/home/yuki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1671'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yuki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yuki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/opt/st/stm32cubeclt_1.16.0:/opt/st/stm32cubeclt_1.16.0/STM32CubeProgrammer/bin:/opt/st/stm32cubeclt_1.16.0/STLink-gdb-server/bin:/opt/st/stm32cubeclt_1.16.0/CMake/bin:/opt/st/stm32cubeclt_1.16.0/Ninja/bin:/opt/st/stm32cubeclt_1.16.0/GNU-tools-for-STM32/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yuki-virtual-machine:@/tmp/.ICE-unix/1646,unix/yuki-virtual-machine:/tmp/.ICE-unix/1646'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/83345ea7_b1f9_43e2_ac02_ace17f95581d'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.OF0FW2'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yuki/ros2_ws/src/NHK2025/build/shoot'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble')]), 'shell': False}
+[1.815853] (-) TimerEvent: {}
+[1.916610] (-) TimerEvent: {}
+[1.920353] (shoot) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/shooter.dir/src/shoot.cpp.o\x1b[0m\n'}
+[2.016753] (-) TimerEvent: {}
+[2.118575] (-) TimerEvent: {}
+[2.219263] (-) TimerEvent: {}
+[2.249451] (rogidrive) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/rogidrive', 'build', '--build-base', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/build', 'install', '--record', '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/yuki/ros2_ws/src/NHK2025/rogidrive/rogidrive', 'env': {'LANGUAGE': 'en_US:', 'USER': 'yuki', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/yuki', 'OLDPWD': '/home/yuki/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'ja_JP.UTF-8', 'SYSTEMD_EXEC_PID': '1671', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'yuki', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'yuki', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/opt/st/stm32cubeclt_1.16.0:/opt/st/stm32cubeclt_1.16.0/STM32CubeProgrammer/bin:/opt/st/stm32cubeclt_1.16.0/STLink-gdb-server/bin:/opt/st/stm32cubeclt_1.16.0/CMake/bin:/opt/st/stm32cubeclt_1.16.0/Ninja/bin:/opt/st/stm32cubeclt_1.16.0/GNU-tools-for-STM32/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/yuki-virtual-machine:@/tmp/.ICE-unix/1646,unix/yuki-virtual-machine:/tmp/.ICE-unix/1646', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/83345ea7_b1f9_43e2_ac02_ace17f95581d', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'ja_JP.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.OF0FW2', 'GNOME_TERMINAL_SERVICE': ':1.96', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages:/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ja_JP.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg'}, 'shell': False}
+[2.319809] (-) TimerEvent: {}
+[2.422183] (-) TimerEvent: {}
+[2.522800] (-) TimerEvent: {}
+[2.623551] (-) TimerEvent: {}
+[2.643184] (rogidrive) StdoutLine: {'line': b'running egg_info\n'}
+[2.643566] (rogidrive) StdoutLine: {'line': b'writing ../../build/rogidrive/rogidrive.egg-info/PKG-INFO\n'}
+[2.644914] (rogidrive) StdoutLine: {'line': b'writing dependency_links to ../../build/rogidrive/rogidrive.egg-info/dependency_links.txt\n'}
+[2.645032] (rogidrive) StdoutLine: {'line': b'writing entry points to ../../build/rogidrive/rogidrive.egg-info/entry_points.txt\n'}
+[2.645122] (rogidrive) StdoutLine: {'line': b'writing requirements to ../../build/rogidrive/rogidrive.egg-info/requires.txt\n'}
+[2.648165] (rogidrive) StdoutLine: {'line': b'writing top-level names to ../../build/rogidrive/rogidrive.egg-info/top_level.txt\n'}
+[2.648266] (rogidrive) StdoutLine: {'line': b"reading manifest file '../../build/rogidrive/rogidrive.egg-info/SOURCES.txt'\n"}
+[2.649571] (rogidrive) StdoutLine: {'line': b"writing manifest file '../../build/rogidrive/rogidrive.egg-info/SOURCES.txt'\n"}
+[2.656624] (rogidrive) StdoutLine: {'line': b'running build\n'}
+[2.657272] (rogidrive) StdoutLine: {'line': b'running build_py\n'}
+[2.657440] (rogidrive) StdoutLine: {'line': b'running install\n'}
+[2.657548] (rogidrive) StdoutLine: {'line': b'running install_lib\n'}
+[2.661847] (rogidrive) StdoutLine: {'line': b'running install_data\n'}
+[2.662001] (rogidrive) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.662487] (rogidrive) StdoutLine: {'line': b"removing '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages/rogidrive-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.664005] (rogidrive) StdoutLine: {'line': b'Copying ../../build/rogidrive/rogidrive.egg-info to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/python3.10/site-packages/rogidrive-0.0.0-py3.10.egg-info\n'}
+[2.667031] (rogidrive) StdoutLine: {'line': b'running install_scripts\n'}
+[2.693030] (rogidrive) StdoutLine: {'line': b'Installing rogidrive script to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/rogidrive\n'}
+[2.694707] (rogidrive) StdoutLine: {'line': b'Installing rogidrive_tester script to /home/yuki/ros2_ws/src/NHK2025/install/rogidrive/lib/rogidrive\n'}
+[2.695102] (rogidrive) StdoutLine: {'line': b"writing list of installed files to '/home/yuki/ros2_ws/src/NHK2025/build/rogidrive/install.log'\n"}
+[2.713869] (rogidrive) CommandEnded: {'returncode': 0}
+[2.721862] (rogidrive) JobEnded: {'identifier': 'rogidrive', 'rc': 0}
+[2.723728] (-) TimerEvent: {}
+[2.824970] (-) TimerEvent: {}
+[2.925400] (-) TimerEvent: {}
+[3.026319] (-) TimerEvent: {}
+[3.127009] (-) TimerEvent: {}
+[3.227937] (-) TimerEvent: {}
+[3.329129] (-) TimerEvent: {}
+[3.429583] (-) TimerEvent: {}
+[3.530033] (-) TimerEvent: {}
+[3.631177] (-) TimerEvent: {}
+[3.731672] (-) TimerEvent: {}
+[3.833351] (-) TimerEvent: {}
+[3.933709] (-) TimerEvent: {}
+[4.034711] (-) TimerEvent: {}
+[4.135581] (-) TimerEvent: {}
+[4.236472] (-) TimerEvent: {}
+[4.336996] (-) TimerEvent: {}
+[4.437497] (-) TimerEvent: {}
+[4.538077] (-) TimerEvent: {}
+[4.638670] (-) TimerEvent: {}
+[4.739559] (-) TimerEvent: {}
+[4.840137] (-) TimerEvent: {}
+[4.940653] (-) TimerEvent: {}
+[5.041652] (-) TimerEvent: {}
+[5.142064] (-) TimerEvent: {}
+[5.242715] (-) TimerEvent: {}
+[5.344914] (-) TimerEvent: {}
+[5.445284] (-) TimerEvent: {}
+[5.546337] (-) TimerEvent: {}
+[5.646866] (-) TimerEvent: {}
+[5.747628] (-) TimerEvent: {}
+[5.848625] (-) TimerEvent: {}
+[5.949885] (-) TimerEvent: {}
+[6.050365] (-) TimerEvent: {}
+[6.150731] (-) TimerEvent: {}
+[6.251879] (-) TimerEvent: {}
+[6.352256] (-) TimerEvent: {}
+[6.453065] (-) TimerEvent: {}
+[6.555569] (-) TimerEvent: {}
+[6.656678] (-) TimerEvent: {}
+[6.757279] (-) TimerEvent: {}
+[6.857736] (-) TimerEvent: {}
+[6.958885] (-) TimerEvent: {}
+[7.059906] (-) TimerEvent: {}
+[7.160853] (-) TimerEvent: {}
+[7.261801] (-) TimerEvent: {}
+[7.362639] (-) TimerEvent: {}
+[7.464946] (-) TimerEvent: {}
+[7.566072] (-) TimerEvent: {}
+[7.666735] (-) TimerEvent: {}
+[7.767682] (-) TimerEvent: {}
+[7.868775] (-) TimerEvent: {}
+[7.969906] (-) TimerEvent: {}
+[8.071745] (-) TimerEvent: {}
+[8.173005] (-) TimerEvent: {}
+[8.274152] (-) TimerEvent: {}
+[8.374648] (-) TimerEvent: {}
+[8.475115] (-) TimerEvent: {}
+[8.575566] (-) TimerEvent: {}
+[8.676022] (-) TimerEvent: {}
+[8.776462] (-) TimerEvent: {}
+[8.877565] (-) TimerEvent: {}
+[8.984377] (-) TimerEvent: {}
+[9.084953] (-) TimerEvent: {}
+[9.185408] (-) TimerEvent: {}
+[9.287489] (-) TimerEvent: {}
+[9.388624] (-) TimerEvent: {}
+[9.489833] (-) TimerEvent: {}
+[9.590938] (-) TimerEvent: {}
+[9.691897] (-) TimerEvent: {}
+[9.792326] (-) TimerEvent: {}
+[9.892868] (-) TimerEvent: {}
+[9.993427] (-) TimerEvent: {}
+[10.104367] (-) TimerEvent: {}
+[10.204785] (-) TimerEvent: {}
+[10.305232] (-) TimerEvent: {}
+[10.406238] (-) TimerEvent: {}
+[10.511700] (-) TimerEvent: {}
+[10.617321] (-) TimerEvent: {}
+[10.717812] (-) TimerEvent: {}
+[10.823183] (-) TimerEvent: {}
+[10.923659] (-) TimerEvent: {}
+[11.025977] (-) TimerEvent: {}
+[11.126620] (-) TimerEvent: {}
+[11.227307] (-) TimerEvent: {}
+[11.327907] (-) TimerEvent: {}
+[11.429135] (-) TimerEvent: {}
+[11.529879] (-) TimerEvent: {}
+[11.631029] (-) TimerEvent: {}
+[11.731718] (-) TimerEvent: {}
+[11.833222] (-) TimerEvent: {}
+[11.934364] (-) TimerEvent: {}
+[12.035692] (-) TimerEvent: {}
+[12.137095] (-) TimerEvent: {}
+[12.238578] (-) TimerEvent: {}
+[12.330541] (shoot) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable shooter\x1b[0m\n'}
+[12.338787] (-) TimerEvent: {}
+[12.440887] (-) TimerEvent: {}
+[12.542604] (-) TimerEvent: {}
+[12.643384] (-) TimerEvent: {}
+[12.744914] (-) TimerEvent: {}
+[12.846193] (-) TimerEvent: {}
+[12.948713] (-) TimerEvent: {}
+[13.049646] (-) TimerEvent: {}
+[13.151102] (-) TimerEvent: {}
+[13.159397] (shoot) StdoutLine: {'line': b'[100%] Built target shooter\n'}
+[13.170238] (shoot) CommandEnded: {'returncode': 0}
+[13.247967] (shoot) JobProgress: {'identifier': 'shoot', 'progress': 'install'}
+[13.248064] (shoot) Command: {'cmd': ['/opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake', '--install', '/home/yuki/ros2_ws/src/NHK2025/build/shoot'], 'cwd': '/home/yuki/ros2_ws/src/NHK2025/build/shoot', 'env': OrderedDict([('LANGUAGE', 'en_US:'), ('USER', 'yuki'), ('LC_TIME', 'ja_JP.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yuki'), ('OLDPWD', '/home/yuki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ja_JP.UTF-8'), ('SYSTEMD_EXEC_PID', '1671'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yuki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yuki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/opt/st/stm32cubeclt_1.16.0:/opt/st/stm32cubeclt_1.16.0/STM32CubeProgrammer/bin:/opt/st/stm32cubeclt_1.16.0/STLink-gdb-server/bin:/opt/st/stm32cubeclt_1.16.0/CMake/bin:/opt/st/stm32cubeclt_1.16.0/Ninja/bin:/opt/st/stm32cubeclt_1.16.0/GNU-tools-for-STM32/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yuki-virtual-machine:@/tmp/.ICE-unix/1646,unix/yuki-virtual-machine:/tmp/.ICE-unix/1646'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ja_JP.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/83345ea7_b1f9_43e2_ac02_ace17f95581d'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'ja_JP.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.OF0FW2'), ('GNOME_TERMINAL_SERVICE', ':1.96'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ja_JP.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LC_MEASUREMENT', 'ja_JP.UTF-8'), ('LC_IDENTIFICATION', 'ja_JP.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yuki/ros2_ws/src/NHK2025/build/shoot'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ja_JP.UTF-8'), ('LC_PAPER', 'ja_JP.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble')]), 'shell': False}
+[13.251253] (-) TimerEvent: {}
+[13.255506] (shoot) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[13.256239] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/lib/shoot/shooter\n'}
+[13.269383] (shoot) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/yuki/ros2_ws/src/NHK2025/install/shoot/lib/shoot/shooter" to ""\n'}
+[13.270992] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/package_run_dependencies/shoot\n'}
+[13.271121] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/parent_prefix_path/shoot\n'}
+[13.272048] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/ament_prefix_path.sh\n'}
+[13.272199] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/ament_prefix_path.dsv\n'}
+[13.272920] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/path.sh\n'}
+[13.273349] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/environment/path.dsv\n'}
+[13.275613] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.bash\n'}
+[13.275754] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.sh\n'}
+[13.276995] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.zsh\n'}
+[13.277103] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/local_setup.dsv\n'}
+[13.278449] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/package.dsv\n'}
+[13.279661] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/ament_index/resource_index/packages/shoot\n'}
+[13.284260] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/cmake/shootConfig.cmake\n'}
+[13.285578] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/cmake/shootConfig-version.cmake\n'}
+[13.285688] (shoot) StdoutLine: {'line': b'-- Installing: /home/yuki/ros2_ws/src/NHK2025/install/shoot/share/shoot/package.xml\n'}
+[13.285842] (shoot) CommandEnded: {'returncode': 0}
+[13.352240] (-) TimerEvent: {}
+[13.387889] (shoot) JobEnded: {'identifier': 'shoot', 'rc': 0}
+[13.389966] (-) EventReactorShutdown: {}

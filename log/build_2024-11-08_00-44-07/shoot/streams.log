@@ -1,0 +1,74 @@
+[0.452s] Invoking command in '/home/yuki/ros2_ws/src/NHK2025/build/shoot': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake /home/yuki/ros2_ws/src/NHK2025/shoot -DCMAKE_INSTALL_PREFIX=/home/yuki/ros2_ws/src/NHK2025/install/shoot
+[0.677s] -- The C compiler identification is GNU 11.4.0
+[0.978s] -- The CXX compiler identification is GNU 11.4.0
+[1.067s] -- Detecting C compiler ABI info
+[1.342s] -- Detecting C compiler ABI info - done
+[1.359s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.362s] -- Detecting C compile features
+[1.363s] -- Detecting C compile features - done
+[1.426s] -- Detecting CXX compiler ABI info
+[1.903s] -- Detecting CXX compiler ABI info - done
+[1.948s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.950s] -- Detecting CXX compile features
+[1.956s] -- Detecting CXX compile features - done
+[1.977s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.502s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.778s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[2.882s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.895s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.912s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.943s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.974s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.049s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.053s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.256s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[3.297s] -- Found FastRTPS: /opt/ros/humble/include  
+[3.367s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.399s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.633s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.633s] -- Found Threads: TRUE  
+[3.773s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[3.797s] -- Found tf2: 0.25.8 (/opt/ros/humble/share/tf2/cmake)
+[3.814s] -- Found rogidrive_msg: 0.0.0 (/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/share/rogidrive_msg/cmake)
+[4.100s] -- Configuring done (3.6s)
+[4.167s] -- Generating done (0.0s)
+[4.179s] -- Build files have been written to: /home/yuki/ros2_ws/src/NHK2025/build/shoot
+[4.209s] Invoked command in '/home/yuki/ros2_ws/src/NHK2025/build/shoot' returned '0': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake /home/yuki/ros2_ws/src/NHK2025/shoot -DCMAKE_INSTALL_PREFIX=/home/yuki/ros2_ws/src/NHK2025/install/shoot
+[4.214s] Invoking command in '/home/yuki/ros2_ws/src/NHK2025/build/shoot': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake --build /home/yuki/ros2_ws/src/NHK2025/build/shoot -- -j2 -l2
+[4.288s] [ 50%] [32mBuilding CXX object CMakeFiles/shooter.dir/src/shoot.cpp.o[0m
+[8.971s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:52:72:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Krclcpp::Publisher<rogidrive_msg::msg::RogidriveMessage_<std::allocator<void> > >::SharedPtr Shoot::publisher_[m[K’
+[8.972s]    52 |     rclcpp::Publisher<rogidrive_msg::msg::RogidriveMessage>::SharedPtr [01;31m[Kpublisher_[m[K;
+[8.972s]       |                                                                        [01;31m[K^~~~~~~~~~[m[K
+[8.972s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:51:68:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Krclcpp::Publisher<std_msgs::msg::Float64MultiArray_<std::allocator<void> > >::SharedPtr Shoot::publisher_[m[K’
+[8.972s]    51 |     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr [01;36m[Kpublisher_[m[K;
+[8.972s]       |                                                                    [01;36m[K^~~~~~~~~~[m[K
+[9.019s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:[m[K In constructor ‘[01m[KShoot::Shoot()[m[K’:
+[9.020s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:62:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_micon[m[K’ was not declared in this scope; did you mean ‘[01m[Kpublisher_[m[K’?
+[9.024s]    62 |     [01;31m[Kpublisher_micon[m[K = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
+[9.027s]       |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[9.028s]       |     [32m[Kpublisher_[m[K
+[9.033s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:63:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_odrive[m[K’ was not declared in this scope; did you mean ‘[01m[Kpublisher_[m[K’?
+[9.033s]    63 |     [01;31m[Kpublisher_odrive[m[K = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
+[9.034s]       |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[9.034s]       |     [32m[Kpublisher_[m[K
+[9.039s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:[m[K In member function ‘[01m[Kfloat Shoot::getYaw(float, float, float)[m[K’:
+[9.040s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:68:59:[m[K [01;31m[Kerror: [m[K‘[01m[Ktheta_r_[m[K’ was not declared in this scope; did you mean ‘[01m[Ktheta_s_[m[K’?
+[9.040s]    68 |     float theta_yaw = atan((y_g - y_s_) / (x_g - x_s_)) - [01;31m[Ktheta_r_[m[K;
+[9.040s]       |                                                           [01;31m[K^~~~~~~~[m[K
+[9.040s]       |                                                           [32m[Ktheta_s_[m[K
+[9.040s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:67:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktheta_s_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[9.040s]    67 | float Shoot::getYaw(float x_s_, float y_s_, [01;35m[Kfloat theta_s_[m[K){
+[9.041s]       |                                             [01;35m[K~~~~~~^~~~~~~~[m[K
+[9.051s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:[m[K In member function ‘[01m[Kvoid Shoot::topic_callback(const Pose&)[m[K’:
+[9.052s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:170:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_micon[m[K’ was not declared in this scope; did you mean ‘[01m[Kpublisher_[m[K’?
+[9.052s]   170 |     [01;31m[Kpublisher_micon[m[K->publish(message_micon);
+[9.052s]       |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[9.052s]       |     [32m[Kpublisher_[m[K
+[9.060s] [01m[K/home/yuki/ros2_ws/src/NHK2025/shoot/src/shoot.cpp:177:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_odrive[m[K’ was not declared in this scope; did you mean ‘[01m[Kpublisher_[m[K’?
+[9.060s]   177 |     [01;31m[Kpublisher_odrive[m[K->publish(message_odrive);
+[9.061s]       |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[9.061s]       |     [32m[Kpublisher_[m[K
+[13.880s] gmake[2]: *** [CMakeFiles/shooter.dir/build.make:76: CMakeFiles/shooter.dir/src/shoot.cpp.o] Error 1
+[13.880s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/shooter.dir/all] Error 2
+[13.881s] gmake: *** [Makefile:146: all] Error 2
+[13.882s] Invoked command in '/home/yuki/ros2_ws/src/NHK2025/build/shoot' returned '2': AMENT_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/yuki/ros2_ws/src/NHK2025/install/rogidrive_msg/local/lib/python3.10/dist-packages:${PYTHONPATH} /opt/st/stm32cubeclt_1.16.0/CMake/bin/cmake --build /home/yuki/ros2_ws/src/NHK2025/build/shoot -- -j2 -l2
