@@ -1,4 +1,3 @@
-
 const float g = 9.8;    //重力加速度(m/(s*s))
 const float h = 2.43;    //ゴールの高さ(m)
 const float x_g = 0;  //ゴールのx座標(m)

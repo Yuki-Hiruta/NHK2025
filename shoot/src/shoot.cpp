@@ -173,7 +173,7 @@ void Shoot::topic_callback(const geometry_msgs::msg::Pose & msg)
     message_odrive.name = "motor1";
     message_odrive.mode = 0;
     message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
-    message_odrive.pos = 0.0;
+    message_odrive.pos = 0;
     publisher_odrive->publish(message_odrive);
 
     // RCLCPP_INFO(this->get_logger(), "I heard position: [x: %f, y: %f, z: %f]", msg.position.x, msg.position.y, msg.position.z);
