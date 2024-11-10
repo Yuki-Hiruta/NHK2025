@@ -65,6 +65,7 @@ private:
 
 Shoot::Shoot()
 : Node("shoot")
+, fire(false)
 {
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
@@ -185,10 +186,10 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
     // RCLCPP_INFO(this->get_logger(), "I heard orientation: [yaw: %f]", yaw);
 }
 
-void Shoot::topic_callback_pose(const sensor_msgs::msg::Joy & msg)
+void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
     fire = msg.buttons[0];
-    if(msg.button[0])
+    if(msg.buttons[0])
     {
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
