@@ -3,18 +3,19 @@
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
+#include "sensor_msgs/msg/joy.hpp"
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include "rogidrive_msg/msg/rogidrive_message.hpp"
 #include "Dif_Everything.hpp"
 
 using std::placeholders::_1;
- 
+
 class Shoot : public rclcpp::Node
 {
 public:
     Shoot();
- 
+
 private:
     void topic_callback(const geometry_msgs::msg::Pose & msg);
 
@@ -47,7 +48,8 @@ private:
     float y_s;        //射出装置のy座標
     float theta_s;    //射出装置のヨー角
 
-    rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_;
+    rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_pose;
+    rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_micon;
     rclcpp::Publisher<rogidrive_msg::msg::RogidriveMessage>::SharedPtr publisher_odrive;
 
@@ -58,7 +60,8 @@ private:
 Shoot::Shoot()
 : Node("shoot")
 {
-    subscription_ = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback, this, _1));
+    subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
+    subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
     publisher_micon = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
     publisher_odrive = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
 
@@ -152,7 +155,7 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
     }
 }
 
-void Shoot::topic_callback(const geometry_msgs::msg::Pose & msg)
+void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
 
