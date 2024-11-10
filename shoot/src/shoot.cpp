@@ -52,7 +52,7 @@ private:
     float y_s;        //射出装置のy座標
     float theta_s;    //射出装置のヨー角
 
-    bool fire;
+    bool commence_fire;
 
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
@@ -188,7 +188,7 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
 
 void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
-    fire = msg.buttons[0];
+    commence_fire = msg.buttons[0];
     if(msg.buttons[0])
     {
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
