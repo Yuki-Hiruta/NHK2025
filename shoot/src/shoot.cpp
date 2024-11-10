@@ -44,9 +44,15 @@ private:
 
     float theta_g;  //ローカル座標のx軸とローカル座標中心とゴールを結んだ直線のなす角
 
+    float x_r;
+    float y_r;
+    float theta_r;
+
     float x_s;        //射出装置のx座標
     float y_s;        //射出装置のy座標
     float theta_s;    //射出装置のヨー角
+
+    bool fire;
 
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
@@ -166,21 +172,31 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
     double yaw;
     m.getRPY(roll, pitch, yaw);
 
-    getVelocity(msg.position.x, msg.position.y, yaw, theta_l_pre, high_or_low);
+    x_r = msg.position.x;
+    y_r = msg.position.y;
+    theta_r = yaw;
+
+    getVelocity(x_r, y_r, yaw, theta_l_pre, high_or_low);
 
     message_micon.data = {shootVelocity[0], shootVelocity[1], shootVelocity[2]};
 
     publisher_micon->publish(message_micon);
-
-    auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
-    message_odrive.name = "motor1";
-    message_odrive.mode = 0;
-    message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
-    message_odrive.pos = 0;
-    publisher_odrive->publish(message_odrive);
-
     // RCLCPP_INFO(this->get_logger(), "I heard position: [x: %f, y: %f, z: %f]", msg.position.x, msg.position.y, msg.position.z);
     // RCLCPP_INFO(this->get_logger(), "I heard orientation: [yaw: %f]", yaw);
+}
+
+void Shoot::topic_callback_pose(const sensor_msgs::msg::Joy & msg)
+{
+    fire = msg.buttons[0];
+    if(msg.button[0])
+    {
+        auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
+        message_odrive.name = "motor1";
+        message_odrive.mode = 0;
+        message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
+        message_odrive.pos = 0;
+        publisher_odrive->publish(message_odrive);
+    }
 }
 
 int main(int argc, char * argv[])
