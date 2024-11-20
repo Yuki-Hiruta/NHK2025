@@ -69,7 +69,7 @@ Shoot::Shoot()
 : Node("shoot")
 , fire(false)
 {
-    this->declare_parameter("k_torpue", 0.1);
+    this->declare_parameter("k_torpue", 1);
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
     subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::MultiArray>("odrive_status", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
@@ -79,7 +79,7 @@ Shoot::Shoot()
 }
 
 float Shoot::getYaw(float _x_s, float _y_s, float _theta_r){
-    float theta_yaw = atan((y_g - _y_s) / (x_g - _x_s)) - _theta_r;
+    float theta_yaw = _theta_r - atan((x_g - _x_s) / (y_g - _y_s));
 
     return theta_yaw;
 }
@@ -193,7 +193,7 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
 void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
     commence_fire = msg.buttons[0];
-    if(msg.buttons[0])
+    if(commence_fire)
     {
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
