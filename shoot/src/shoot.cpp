@@ -56,8 +56,10 @@ private:
 
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
-    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_micon;
+    rclcpp::Subscription<rogidrive_msg::msg::MultiArray>::SharedPtr subscription_odrive_estimate;
+
     rclcpp::Publisher<rogidrive_msg::msg::RogidriveMessage>::SharedPtr publisher_odrive;
+    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_micon;
 
     std::array<float, 3> currentPose;   //射出装置のx座標, 射出装置のy座標, 射出装置のヨー角
     std::array<float, 3> shootVelocity; //speed, pitch, yaw(射撃諸元)
@@ -67,8 +69,10 @@ Shoot::Shoot()
 : Node("shoot")
 , fire(false)
 {
+    this->declare_parameter("k_torpue", 0.1);
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
+    subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::MultiArray>("odrive_status", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
     publisher_micon = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
     publisher_odrive = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
 
@@ -195,6 +199,7 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         message_odrive.name = "motor1";
         message_odrive.mode = 0;
         message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
+        message_odrive.vel = 20;
         message_odrive.pos = 0;
         publisher_odrive->publish(message_odrive);
     }
