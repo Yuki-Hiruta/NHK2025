@@ -9,6 +9,8 @@ from rogidrive_msg.msg import RogidriveMultiArray
 
 AXIS_STATE_CLOSED_LOOP_CONTROL = 8
 AXIS_STATE_IDLE = 1
+
+TORQUE_CONTROL = 1
 VELOCITY_CONTROL = 2
 POSITION_CONTROL = 3
 
@@ -112,11 +114,19 @@ class Rogidrive(rclpy.node.Node):
             elif cmd_msg.mode == 1:
                 if cmd_msg.mode != self.config[cmd_msg.name]['mode']:
                     self.config[cmd_msg.name]['dev'].controller.config.control_mode = POSITION_CONTROL
-                    self.config[cmd_msg.name]['dev'].controller.config.input_mode = 5
+                    self.config[cmd_msg.name]['dev'].controller.config.input_mode = 5 # trap traj
                     self.config[cmd_msg.name]['mode'] = cmd_msg.mode
                 self.config[cmd_msg.name]['dev'].controller.config.vel_limit = cmd_msg.vel
                 self.config[cmd_msg.name]['dev'].trap_traj.config.vel_limit = cmd_msg.vel
                 self.config[cmd_msg.name]['dev'].controller.input_pos = cmd_msg.pos
+            elif cmd_msg.mode == 2:
+                if cmd_msg.mode != self.config[cmd_msg.name]['mode']:
+                    self.config[cmd_msg.name]['dev'].controller.config.control_mode = TORQUE_CONTROL
+                    self.config[cmd_msg.name]['dev'].controller.config.input_mode = 1 # pass through
+                    self.config[cmd_msg.name]['mode'] = cmd_msg.mode
+                # self.config[cmd_msg.name]['dev'].controller.config.vel_limit = cmd_msg.vel
+                # self.config[cmd_msg.name]['dev'].trap_traj.config.vel_limit = cmd_msg.vel
+                self.config[cmd_msg.name]['dev'].controller.input_torque = cmd_msg.torque
         except Exception as e:
             self.get_logger().error("Error: %s" % e)
             self.connect_odrive()
@@ -138,10 +148,12 @@ class Rogidrive(rclpy.node.Node):
         self.pub.publish(self.status)
 
     def __del__(self):
-        pass
-        # for axis in self.config:
-        #     self.config[axis]['dev'].requested_state = AXIS_STATE_IDLE
-        #     self.config[axis]['dev'].controller.input_vel = 0
+        # pass
+        for axis in self.config:
+            self.config[axis]['dev'].requested_state = AXIS_STATE_IDLE
+            self.config[axis]['dev'].controller.input_vel = 0
+            self.config[axis]['dev'].controller.input_torque = 0
+
 
 
 def main():

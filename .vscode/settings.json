@@ -2,6 +2,7 @@
     "files.associations": {
         "cmath": "cpp",
         "complex": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "functional": "cpp"
     }
 }
