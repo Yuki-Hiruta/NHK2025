@@ -197,7 +197,7 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
     {
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
-        message_odrive.mode = 0;
+        message_odrive.mode = odrive_mode;
         message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
         message_odrive.vel = 20;
         message_odrive.pos = 0;
