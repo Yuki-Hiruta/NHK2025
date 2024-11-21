@@ -69,7 +69,10 @@ Shoot::Shoot()
 : Node("shoot")
 , fire(false)
 {
-    this->declare_parameter("k_torpue", 1);
+    this->declare_parameter("k_torque", 1);
+
+    k_torque_ = (float)this->get_parameter("k_torque").as_double();
+
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
     subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::MultiArray>("odrive_status", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
@@ -197,10 +200,8 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
     {
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
-        message_odrive.mode = odrive_mode;
-        message_odrive.vel = (shootVelocity[0] / radius) * k_rot;
-        message_odrive.vel = 20;
-        message_odrive.pos = 0;
+        message_odrive.mode = 2;
+        message_odrive.torque = (shootVelocity[0] / radius) * k_torque_;
         publisher_odrive->publish(message_odrive);
     }
 }
