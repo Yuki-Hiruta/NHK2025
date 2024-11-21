@@ -54,7 +54,7 @@ private:
 
     bool commence_fire;
 
-    rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr subscription_pose;
+    rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
     rclcpp::Subscription<rogidrive_msg::msg::MultiArray>::SharedPtr subscription_odrive_estimate;
 
@@ -74,7 +74,7 @@ Shoot::Shoot()
     k_torque_ = (float)this->get_parameter("k_torque").as_double();
 
     //rogidriveにトルクを送る
-    subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
+    subscription_pose = this->create_subscription<geometry_msgs::msg::Pose2D>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
 
     //joy_nodeからうけとり
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
@@ -87,7 +87,6 @@ Shoot::Shoot()
 
     //rogidriveにトルクを送る
     publisher_odrive = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
-
 }
 
 //yaw角を算出
@@ -185,7 +184,7 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
 }
 
 //自己位置を定期的にsubし、そのたびに射撃諸元を算出
-void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
+void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose" & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
 
