@@ -73,20 +73,31 @@ Shoot::Shoot()
 
     k_torque_ = (float)this->get_parameter("k_torque").as_double();
 
+    //rogidriveにトルクを送る
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
+
+    //joy_nodeからうけとり
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
+
+    //odriveのエンコーダを読み取り
     subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::MultiArray>("odrive_status", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
+
+    //マイコンに砲塔の諸元を送る
     publisher_micon = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
+
+    //rogidriveにトルクを送る
     publisher_odrive = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
 
 }
 
+//yaw角を算出
 float Shoot::getYaw(float _x_s, float _y_s, float _theta_r){
     float theta_yaw = _theta_r - atan((x_g - _x_s) / (y_g - _y_s));
 
     return theta_yaw;
 }
 
+//落着角度から砲塔pitch角を算出
 float Shoot::getV_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     theta_l = 2 * M_PI - theta_l_pre;
 
@@ -98,6 +109,7 @@ float Shoot::getV_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     return v_thetadomein;
 }
 
+//落着角度から砲塔射撃速度を算出
 float Shoot::getPitch_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     theta_l = 2 * M_PI - theta_l_pre;
 
@@ -109,6 +121,7 @@ float Shoot::getPitch_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     return pitch_thetadomein;
 }
 
+//最大射撃速度から砲塔pitch角を算出
 float Shoot::getPitch_maxV_high(float x_s_, float y_s_){
     float l = hypot(y_g - y_s_, x_g - x_s_);
 
@@ -124,6 +137,7 @@ float Shoot::getPitch_maxV_high(float x_s_, float y_s_){
     }
 }
 
+//最大射撃速度から砲塔射撃速度を算出
 float Shoot::getPitch_maxV_low(float x_s_, float y_s_){
     float l = hypot(y_g - y_s_, x_g - x_s_);
 
@@ -144,6 +158,7 @@ float Shoot::getPitch_maxV_low(float x_s_, float y_s_){
 //     y_s = y_r + l_1*cos(theta_r) - l_2*cos(theta_yaw);
 // }    //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ（感嘆）
 
+//射撃諸元を取得
 void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_pre, bool high_or_low){
 
     // calc_pose(x_r, y_r, theta_r);
@@ -169,6 +184,7 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
     }
 }
 
+//自己位置を定期的にsubし、そのたびに射撃諸元を算出
 void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
@@ -193,6 +209,7 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose & msg)
     // RCLCPP_INFO(this->get_logger(), "I heard orientation: [yaw: %f]", yaw);
 }
 
+//コントローラ入力を定期的にsubし、そのたびに射撃諸元を算出
 void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
     commence_fire = msg.buttons[0];
