@@ -14,7 +14,7 @@ using std::placeholders::_1;
 class Shoot : public rclcpp::Node
 {
 public:
-    Shoot();
+    Shoot(bool high_or_low);
 
 private:
     void topic_callback(const geometry_msgs::msg::Pose & msg);
@@ -65,7 +65,7 @@ private:
     std::array<float, 3> shootVelocity; //speed, pitch, yaw(射撃諸元)
 };
 
-Shoot::Shoot()
+Shoot::Shoot(true)
 : Node("shoot")
 , fire(false)
 {
@@ -184,24 +184,24 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
 }
 
 //自己位置を定期的にsubし、そのたびに射撃諸元を算出
-void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose" & msg)
+void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
 
-    tf2::Quaternion q(msg.orientation.x,msg.orientation.y,msg.orientation.z,msg.orientation.w);
-    tf2::Matrix3x3 m(q);
-    double roll;
-    double pitch;
-    double yaw;
-    m.getRPY(roll, pitch, yaw);
+    // tf2::Quaternion q(msg.orientation.x,msg.orientation.y,msg.orientation.z,msg.orientation.w);
+    // tf2::Matrix3x3 m(q);
+    // double roll;
+    // double pitch;
+    // double yaw;
+    // m.getRPY(roll, pitch, yaw);
 
     x_r = msg.position.x;
     y_r = msg.position.y;
-    theta_r = yaw;
+    theta_r = msg.position.theta;
 
-    getVelocity(x_r, y_r, yaw, theta_l_pre, high_or_low);
+    getVelocity(x_r, y_r, theta_r, theta_l_pre, high_or_low);
 
-    message_micon.data = {shootVelocity[0], shootVelocity[1], shootVelocity[2]};
+    message_micon.data = {shootVelocity[1], shootVelocity[2]};
 
     publisher_micon->publish(message_micon);
     // RCLCPP_INFO(this->get_logger(), "I heard position: [x: %f, y: %f, z: %f]", msg.position.x, msg.position.y, msg.position.z);
