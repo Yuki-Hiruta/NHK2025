@@ -201,7 +201,7 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
         message_odrive.mode = 2;
-        message_odrive.torque = (shootVelocity[0] / radius) * k_torque_;
+        message_odrive.torque = (radious / barrel_length) * ((m*shootVelocity[0]*shootVelocity[0] / 2) + barrel_length*sin(shootVelocity[1]) ) * k_torque_;
         publisher_odrive->publish(message_odrive);
     }
 }
