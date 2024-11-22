@@ -9,7 +9,6 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(tf2 REQUIRED)
 find_package(rogidrive_msg REQUIRED)
 
 include_directories(${tf2_INCLUDE_DIRS})

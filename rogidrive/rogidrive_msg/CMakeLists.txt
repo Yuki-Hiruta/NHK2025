@@ -13,6 +13,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RogidriveMessage.msg"
   "msg/RogidriveMultiArray.msg"
+  "msg/Hiruta_pos.msg"
   DEPENDENCIES std_msgs
 )
 # uncomment the following section in order to fill in

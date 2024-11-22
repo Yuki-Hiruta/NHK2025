@@ -12,8 +12,11 @@ namespace shooter{
 
     const float v_max = 10;    //射出装置の最大初速
 
-    const float radius = 0.05;  //回転軸からの距離（メートル）
-    const float barrel_length = 0.4
+    const float radious = 0.05;  //回転軸からの距離（メートル）
+    const float barrel_length = 0.4;
+    const float fire_rotate_distance = 0.4 / 0.05;
+
+    const float frequency = 1*1000;
 
     const float k_rot = 1;  //射出速度調整さん（必要そうだから作ってみた）
 }

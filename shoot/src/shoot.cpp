@@ -1,11 +1,9 @@
 #include <memory>
 #include <array>
 #include "rclcpp/rclcpp.hpp"
-#include "geometry_msgs/msg/pose.hpp"
+#include "geometry_msgs/msg/pose2d.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "sensor_msgs/msg/joy.hpp"
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2/LinearMath/Matrix3x3.h>
 #include "rogidrive_msg/msg/rogidrive_message.hpp"
 #include "Dif_Everything.hpp"
 
@@ -14,10 +12,15 @@ using std::placeholders::_1;
 class Shoot : public rclcpp::Node
 {
 public:
-    Shoot(bool high_or_low);
+    Shoot();
 
 private:
-    void topic_callback(const geometry_msgs::msg::Pose & msg);
+    void topic_callback_pose(const geometry_msgs::msg::Pose2D & msg);
+    void topic_callback_controller(const sensor_msgs::msg::Joy & msg);
+    void topic_callback_odrive_pos(const rogidrive_msg::msg::RogidriveMultiArray & msg);
+
+    float pid(float _current_pos, float target_pos, float kp, float ki, float kd);
+    void pid_reset();
 
     void getVelocity(float x_r_, float y_r_, float theta_r_, float theta_l_pre, bool high_or_low);
     float getYaw(float x_r_, float y_r_, float theta_r_);
@@ -54,24 +57,38 @@ private:
 
     bool commence_fire;
 
+    float current_pos;  //pos of bldc
+    // float frequency is defined in Dif_Ev
+    float error;
+    float preverror;
+    float integral;
+    float output;
+
+    float torque;
+
     rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
-    rclcpp::Subscription<rogidrive_msg::msg::MultiArray>::SharedPtr subscription_odrive_estimate;
+    rclcpp::Subscription<rogidrive_msg::msg::RogidriveMultiArray>::SharedPtr subscription_odrive_pos;
 
     rclcpp::Publisher<rogidrive_msg::msg::RogidriveMessage>::SharedPtr publisher_odrive;
     rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_micon;
 
     std::array<float, 3> currentPose;   //射出装置のx座標, 射出装置のy座標, 射出装置のヨー角
     std::array<float, 3> shootVelocity; //speed, pitch, yaw(射撃諸元)
+    std::vector<double> motor_pos;
 };
 
-Shoot::Shoot(true)
+Shoot::Shoot()
 : Node("shoot")
-, fire(false)
+, high_or_low(true)
+, commencefire(false)
 {
-    this->declare_parameter("k_torque", 1);
 
-    k_torque_ = (float)this->get_parameter("k_torque").as_double();
+    this->declare_parameter("k_torque", 1);
+    this->declare_parameter("limit_pos", 2);
+
+    k_torque = (float)this->get_parameter("k_torque").as_double();
+    limit_pos = (float)this->get_parameter("limit_pos").as_double();
 
     //rogidriveにトルクを送る
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose2D>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
@@ -80,13 +97,33 @@ Shoot::Shoot(true)
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
 
     //odriveのエンコーダを読み取り
-    subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::MultiArray>("odrive_status", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
+    subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::Hiruta_pos>("odrive_pos", 10, std::bind(&Shoot::topic_callback_pos, this, _1));
+   
+    subscription_ = this->create_subscription<rogidrive_msg::msg::RogidriveMultiArray>("rogidrive_status", 10, std::bind(&Shoot::topic_callback_odrive_pos, this, std::placeholders::_1));
 
     //マイコンに砲塔の諸元を送る
     publisher_micon = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
 
     //rogidriveにトルクを送る
     publisher_odrive = this->create_publisher<rogidrive_msg::msg::RogidriveMessage>("odrive_cmd", 10);
+
+}
+
+float Shoot::pid(float _current_pos, float _target_pos, float kp, float ki, float kd)
+{
+    error = _target_pos - current_pos;
+    output = kp * error + ki/frequency * integral + kd*frequency * (error - preverror);
+
+    preverror = error;
+    integral += error;
+
+    return output;
+}
+
+void Shoot::pid_reset()
+{
+    integral = 0;
+    preverror = 0;
 }
 
 //yaw角を算出
@@ -184,20 +221,13 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
 }
 
 //自己位置を定期的にsubし、そのたびに射撃諸元を算出
-void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
+void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D::SharedPtr::SharedPtr & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
 
-    // tf2::Quaternion q(msg.orientation.x,msg.orientation.y,msg.orientation.z,msg.orientation.w);
-    // tf2::Matrix3x3 m(q);
-    // double roll;
-    // double pitch;
-    // double yaw;
-    // m.getRPY(roll, pitch, yaw);
-
-    x_r = msg.position.x;
-    y_r = msg.position.y;
-    theta_r = msg.position.theta;
+    x_r = msg.x;
+    y_r = msg.y;
+    theta_r = msg.theta;
 
     getVelocity(x_r, y_r, theta_r, theta_l_pre, high_or_low);
 
@@ -208,8 +238,8 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
     // RCLCPP_INFO(this->get_logger(), "I heard orientation: [yaw: %f]", yaw);
 }
 
-//コントローラ入力を定期的にsubし、そのたびに射撃諸元を算出
-void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
+//コントローラ入力を定期的にsub
+void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy::SharedPtr & msg)
 {
     commence_fire = msg.buttons[0];
     if(commence_fire)
@@ -217,10 +247,30 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
         message_odrive.mode = 2;
-        message_odrive.torque = (radious / barrel_length) * ((m*shootVelocity[0]*shootVelocity[0] / 2) + barrel_length*sin(shootVelocity[1]) ) * k_torque_;
+        torque = (radious / barrel_length) * ((m*shootVelocity[0]*shootVelocity[0] / 2) + barrel_length*sin(shootVelocity[1]) ) * k_torque;
+        message_odrive.torque = torque;
         publisher_odrive->publish(message_odrive);
     }
 }
+
+void Shoot::topic_callback_odrive_pos(const rogidrive_msg::msg::RogidriveMultiArray::SharedPtr msg)
+{
+    motor_pos.clear();
+
+    for(const auto &data : msg->data)
+    {
+        motor_pos.push_back(data.pos);
+    }
+    RCLCPP_INFO(this->get_logger(), "Stored %zu motor positions.", motor_pos.size());
+
+    torque = pid(motor_pos[0], limit_pos, 0.4, 0, 0);
+
+    if(motor_pos[0] == limit_pos)
+    {
+        pid_reset();
+    }
+}
+
 
 int main(int argc, char * argv[])
 {

@@ -3,6 +3,7 @@
         "cmath": "cpp",
         "complex": "cpp",
         "array": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "memory": "cpp"
     }
 }
