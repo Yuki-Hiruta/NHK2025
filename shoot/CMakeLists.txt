@@ -8,13 +8,14 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rogidrive_msg REQUIRED)
 
 include_directories(${tf2_INCLUDE_DIRS})
 
 add_executable(shooter src/shoot.cpp)
-ament_target_dependencies(shooter rclcpp std_msgs geometry_msgs rogidrive_msg)
+ament_target_dependencies(shooter rclcpp std_msgs geometry_msgs rogidrive_msg sensor_msgs)
 
 install(TARGETS
   shooter

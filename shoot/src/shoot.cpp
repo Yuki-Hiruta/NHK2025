@@ -1,10 +1,11 @@
 #include <memory>
 #include <array>
 #include "rclcpp/rclcpp.hpp"
-#include "geometry_msgs/msg/pose2d.hpp"
+#include "geometry_msgs/msg/pose2_d.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 #include "rogidrive_msg/msg/rogidrive_message.hpp"
+#include "rogidrive_msg/msg/rogidrive_multi_array.hpp"
 #include "Dif_Everything.hpp"
 
 using std::placeholders::_1;
@@ -57,7 +58,6 @@ private:
 
     bool commence_fire;
 
-    float current_pos;  //pos of bldc
     // float frequency is defined in Dif_Ev
     float error;
     float preverror;
@@ -65,6 +65,8 @@ private:
     float output;
 
     float torque;
+    float k_torque;
+    float limit_pos;
 
     rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
@@ -81,7 +83,7 @@ private:
 Shoot::Shoot()
 : Node("shoot")
 , high_or_low(true)
-, commencefire(false)
+, commence_fire(false)
 {
 
     this->declare_parameter("k_torque", 1);
@@ -97,9 +99,7 @@ Shoot::Shoot()
     subscription_controller = this->create_subscription<sensor_msgs::msg::Joy>("joy_controller", 10, std::bind(&Shoot::topic_callback_controller, this, _1));
 
     //odriveのエンコーダを読み取り
-    subscription_odrive_estimate = this->create_subscription<rogidrive_msg::msg::Hiruta_pos>("odrive_pos", 10, std::bind(&Shoot::topic_callback_pos, this, _1));
-   
-    subscription_ = this->create_subscription<rogidrive_msg::msg::RogidriveMultiArray>("rogidrive_status", 10, std::bind(&Shoot::topic_callback_odrive_pos, this, std::placeholders::_1));
+    subscription_odrive_pos = this->create_subscription<rogidrive_msg::msg::RogidriveMultiArray>("rogidrive_status", 10, std::bind(&Shoot::topic_callback_odrive_pos, this, std::placeholders::_1));
 
     //マイコンに砲塔の諸元を送る
     publisher_micon = this->create_publisher<std_msgs::msg::Float64MultiArray>("shootVelocity", 10);
@@ -109,10 +109,11 @@ Shoot::Shoot()
 
 }
 
+//pid制御
 float Shoot::pid(float _current_pos, float _target_pos, float kp, float ki, float kd)
 {
-    error = _target_pos - current_pos;
-    output = kp * error + ki/frequency * integral + kd*frequency * (error - preverror);
+    error = _target_pos - _current_pos;
+    output = kp * error + ki/shooter::frequency * integral + kd*shooter::frequency * (error - preverror);
 
     preverror = error;
     integral += error;
@@ -120,6 +121,7 @@ float Shoot::pid(float _current_pos, float _target_pos, float kp, float ki, floa
     return output;
 }
 
+//preverrorとintegralを0にリセット
 void Shoot::pid_reset()
 {
     integral = 0;
@@ -128,7 +130,7 @@ void Shoot::pid_reset()
 
 //yaw角を算出
 float Shoot::getYaw(float _x_s, float _y_s, float _theta_r){
-    float theta_yaw = _theta_r - atan((x_g - _x_s) / (y_g - _y_s));
+    float theta_yaw = _theta_r - atan((shooter::x_g - _x_s) / (shooter::y_g - _y_s));
 
     return theta_yaw;
 }
@@ -137,11 +139,11 @@ float Shoot::getYaw(float _x_s, float _y_s, float _theta_r){
 float Shoot::getV_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     theta_l = 2 * M_PI - theta_l_pre;
 
-    float l = hypot(y_g - y_s_, x_g - x_s_);
+    float l = hypot(shooter::y_g - y_s_, shooter::x_g - x_s_);
 
-    pitch_thetadomein = atan(((2*h)/l) - tan(theta_l));
+    pitch_thetadomein = atan(((2*shooter::h)/l) - tan(theta_l));
 
-    v_thetadomein = (l/cos(pitch_thetadomein)) * sqrt(l/(2*((l*tan(pitch_thetadomein)) - h)));
+    v_thetadomein = (l/cos(pitch_thetadomein)) * sqrt(l/(2*((l*tan(pitch_thetadomein)) - shooter::h)));
     return v_thetadomein;
 }
 
@@ -149,25 +151,25 @@ float Shoot::getV_thetadomain(float x_s_, float y_s_, float theta_l_pre){
 float Shoot::getPitch_thetadomain(float x_s_, float y_s_, float theta_l_pre){
     theta_l = 2 * M_PI - theta_l_pre;
 
-    float l = hypot(y_g - y_s_, x_g - x_s_);
+    float l = hypot(shooter::y_g - y_s_, shooter::x_g - x_s_);
 
-    pitch_thetadomein = atan(((2*h)/l) - tan(theta_l));
+    pitch_thetadomein = atan(((2*shooter::h)/l) - tan(theta_l));
 
-    v_thetadomein = (l/cos(pitch_thetadomein)) * sqrt(l/(2*((l*tan(pitch_thetadomein)) - h)));
+    v_thetadomein = (l/cos(pitch_thetadomein)) * sqrt(l/(2*((l*tan(pitch_thetadomein)) - shooter::h)));
     return pitch_thetadomein;
 }
 
 //最大射撃速度から砲塔pitch角を算出
 float Shoot::getPitch_maxV_high(float x_s_, float y_s_){
-    float l = hypot(y_g - y_s_, x_g - x_s_);
+    float l = hypot(shooter::y_g - y_s_, shooter::x_g - x_s_);
 
-    if((1.0 - ((2.0*g / (v_max*v_max)) * (h + (l*l * g / (2.0*v_max*v_max))))) < 0)
+    if((1.0 - ((2.0*shooter::g / (shooter::v_max*shooter::v_max)) * (shooter::h + (l*l * shooter::g / (2.0*shooter::v_max*shooter::v_max))))) < 0)
     {
         return 0;
     }
     else
     {
-        theta_pitch_high = atan((v_max*v_max) * (1.0 + sqrt(1 - ((2.0*g / (v_max*v_max)) * (h + (l*l * g / (2.0*v_max*v_max)))))) / (l * g));
+        theta_pitch_high = atan((shooter::v_max*shooter::v_max) * (1.0 + sqrt(1 - ((2.0*shooter::g / (shooter::v_max*shooter::v_max)) * (shooter::h + (l*l * shooter::g / (2.0*shooter::v_max*shooter::v_max)))))) / (l * shooter::g));
     
         return theta_pitch_high;
     }
@@ -175,24 +177,25 @@ float Shoot::getPitch_maxV_high(float x_s_, float y_s_){
 
 //最大射撃速度から砲塔射撃速度を算出
 float Shoot::getPitch_maxV_low(float x_s_, float y_s_){
-    float l = hypot(y_g - y_s_, x_g - x_s_);
+    float l = hypot(shooter::y_g - y_s_, shooter::x_g - x_s_);
 
-    if((1.0 - ((2.0*g / (v_max*v_max)) * (h + (l*l * g / (2.0*v_max*v_max))))) < 0)
+    if((1.0 - ((2.0*shooter::g / (shooter::v_max*shooter::v_max)) * (shooter::h + (l*l * shooter::g / (2.0*shooter::v_max*shooter::v_max))))) < 0)
     {
         return 0;
     }
     else
     {
-        theta_pitch_low = atan((v_max*v_max) * (1.0 - sqrt(1 - ((2.0*g / (v_max*v_max)) * (h + (l*l * g / (2.0*v_max*v_max)))))) / (l * g));
+        theta_pitch_low = atan((shooter::v_max*shooter::v_max) * (1.0 - sqrt(1 - ((2.0*shooter::g / (shooter::v_max*shooter::v_max)) * (shooter::h + (l*l * shooter::g / (2.0*shooter::v_max*shooter::v_max)))))) / (l * shooter::g));
     
         return theta_pitch_low;
     }
 }
 
+//いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ（感嘆）
 // void Shoot::calc_pose(float x_r, float y_r, float theta_r){
 //     x_s = x_r - l_1*sin(theta_r) - l_2*sin(theta_yaw);
 //     y_s = y_r + l_1*cos(theta_r) - l_2*cos(theta_yaw);
-// }    //いつか機体の設計が固まったら射出口の自己位置を出すために使いたいものだなぁ（感嘆）
+// }
 
 //射撃諸元を取得
 void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_pre, bool high_or_low){
@@ -201,14 +204,14 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
 
     shootVelocity[2] = getYaw(_x_r, _y_r, _theta_r);
 
-    if(getV_thetadomain(_x_r, _y_r, _theta_l_pre) <= v_max)
+    if(getV_thetadomain(_x_r, _y_r, _theta_l_pre) <= shooter::v_max)
     {
         shootVelocity[1] = getPitch_thetadomain(_x_r, _y_r, _theta_l_pre);
         shootVelocity[0] = getV_thetadomain(_x_r, _y_r, _theta_l_pre);
     }
     else
     {
-        shootVelocity[0] = v_max;
+        shootVelocity[0] = shooter::v_max;
         if(high_or_low)
         {
             shootVelocity[1] = getPitch_maxV_high(_x_r, _y_r);
@@ -221,7 +224,7 @@ void Shoot::getVelocity(float _x_r, float _y_r, float _theta_r, float _theta_l_p
 }
 
 //自己位置を定期的にsubし、そのたびに射撃諸元を算出
-void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D::SharedPtr::SharedPtr & msg)
+void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
 {
     auto message_micon = std_msgs::msg::Float64MultiArray();
 
@@ -239,7 +242,7 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D::SharedPtr::Sha
 }
 
 //コントローラ入力を定期的にsub
-void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy::SharedPtr & msg)
+void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
     commence_fire = msg.buttons[0];
     if(commence_fire)
@@ -247,17 +250,18 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy::SharedPtr & m
         auto message_odrive = rogidrive_msg::msg::RogidriveMessage();
         message_odrive.name = "motor1";
         message_odrive.mode = 2;
-        torque = (radious / barrel_length) * ((m*shootVelocity[0]*shootVelocity[0] / 2) + barrel_length*sin(shootVelocity[1]) ) * k_torque;
-        message_odrive.torque = torque;
+        torque = (shooter::radious / shooter::barrel_length) * ((shooter::m*shootVelocity[0]*shootVelocity[0] / 2) + shooter::barrel_length*sin(shootVelocity[1]) ) * k_torque;
+        message_odrive.current = torque;
         publisher_odrive->publish(message_odrive);
     }
 }
 
-void Shoot::topic_callback_odrive_pos(const rogidrive_msg::msg::RogidriveMultiArray::SharedPtr msg)
+//回転し過ぎないようodriveからエンコーダーを読んでpidで制御
+void Shoot::topic_callback_odrive_pos(const rogidrive_msg::msg::RogidriveMultiArray & msg)
 {
     motor_pos.clear();
 
-    for(const auto &data : msg->data)
+    for(const auto &data : msg.data)
     {
         motor_pos.push_back(data.pos);
     }
