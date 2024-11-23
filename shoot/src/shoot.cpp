@@ -240,11 +240,11 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
     message_micon.data = {shootVelocity[1], shootVelocity[2]};
 
     publisher_micon->publish(message_micon);
-    // RCLCPP_INFO(this->get_logger(), "I heard position: [x: %f, y: %f, z: %f]", msg.position.x, msg.position.y, msg.position.z);
-    // RCLCPP_INFO(this->get_logger(), "I heard orientation: [yaw: %f]", yaw);
+
+    RCLCPP_INFO(this->get_logger(), "firing parameters: [pitch: %f, yaw: %f]", shootVelocity[0], shootVelocity[1]);
 }
 
-//コントローラ入力を定期的にsub
+//コントローラ入力を定期的にsubしodrive_cmdにpub
 void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
 {
     commence_fire = msg.buttons[0];
@@ -256,6 +256,8 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         torque = (shooter::radious / shooter::barrel_length) * ((shooter::m*shootVelocity[0]*shootVelocity[0] / 2) + shooter::barrel_length*sin(shootVelocity[1]) ) * k_torque;
         message_odrive.current = torque / torque_constant;
         publisher_odrive->publish(message_odrive);
+
+        RCLCPP_INFO(this->get_logger(), "firing parameters: [speed: %f]", message_odrive.current);
     }
 }
 
