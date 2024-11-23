@@ -2,3 +2,4 @@
   rosw.parameters:
     k_torque: 1.0
     limit_pos: 2.0
+    torque_constant: 1.0
