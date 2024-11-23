@@ -67,6 +67,7 @@ private:
     float torque;
     float k_torque;
     float limit_pos;
+    float torque_constant;
 
     rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr subscription_pose;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr subscription_controller;
@@ -88,9 +89,11 @@ Shoot::Shoot()
 
     this->declare_parameter("k_torque", 1);
     this->declare_parameter("limit_pos", 2);
+    this->declare_parameter("torque_constant", 2);
 
     k_torque = (float)this->get_parameter("k_torque").as_double();
     limit_pos = (float)this->get_parameter("limit_pos").as_double();
+    torque_constant = (float)this->get_parameter("torque_constant").as_double();
 
     //rogidriveにトルクを送る
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose2D>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
@@ -251,7 +254,7 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         message_odrive.name = "motor1";
         message_odrive.mode = 2;
         torque = (shooter::radious / shooter::barrel_length) * ((shooter::m*shootVelocity[0]*shootVelocity[0] / 2) + shooter::barrel_length*sin(shootVelocity[1]) ) * k_torque;
-        message_odrive.current = torque;
+        message_odrive.current = torque / torque_constant;
         publisher_odrive->publish(message_odrive);
     }
 }
