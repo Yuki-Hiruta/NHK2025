@@ -1,5 +1,5 @@
 /**:
-  rosw.parameters:
-    k_torque: 1.0
+  ros__parameters:
+    k_torque: 1.2
     limit_pos: 2.0
     torque_constant: 1.0

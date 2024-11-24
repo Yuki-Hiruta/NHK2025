@@ -87,15 +87,15 @@ Shoot::Shoot()
 , commence_fire(false)
 {
 
-    this->declare_parameter("k_torque", 1);
-    this->declare_parameter("limit_pos", 2);
-    this->declare_parameter("torque_constant", 2);
+    this->declare_parameter("k_torque", 1.0);
+    this->declare_parameter("limit_pos", 2.0);
+    this->declare_parameter("torque_constant", 2.0);
 
     k_torque = (float)this->get_parameter("k_torque").as_double();
     limit_pos = (float)this->get_parameter("limit_pos").as_double();
     torque_constant = (float)this->get_parameter("torque_constant").as_double();
 
-    //rogidriveにトルクを送る
+    //自己位置を取得
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose2D>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
 
     //joy_nodeからうけとり
@@ -241,7 +241,7 @@ void Shoot::topic_callback_pose(const geometry_msgs::msg::Pose2D & msg)
 
     publisher_micon->publish(message_micon);
 
-    RCLCPP_INFO(this->get_logger(), "firing parameters: [pitch: %f, yaw: %f]", shootVelocity[0], shootVelocity[1]);
+    RCLCPP_INFO(this->get_logger(), "firing parameters: [pitch: %f, yaw: %f]", shootVelocity[1], shootVelocity[2]);
 }
 
 //コントローラ入力を定期的にsubしodrive_cmdにpub
