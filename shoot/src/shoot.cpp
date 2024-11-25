@@ -85,15 +85,17 @@ Shoot::Shoot()
 : Node("shoot")
 , high_or_low(true)
 , commence_fire(false)
+, shootVelocity({0, 0, 0})
 {
-
     this->declare_parameter("k_torque", 1.0);
     this->declare_parameter("limit_pos", 2.0);
     this->declare_parameter("torque_constant", 2.0);
+    this->declare_parameter("theta_l_pre", M_PI/4);
 
     k_torque = (float)this->get_parameter("k_torque").as_double();
     limit_pos = (float)this->get_parameter("limit_pos").as_double();
     torque_constant = (float)this->get_parameter("torque_constant").as_double();
+    theta_l_pre = (float)this->get_parameter("theta_l_pre").as_double();
 
     //自己位置を取得
     subscription_pose = this->create_subscription<geometry_msgs::msg::Pose2D>("currentPose", 10, std::bind(&Shoot::topic_callback_pose, this, _1));
@@ -257,7 +259,7 @@ void Shoot::topic_callback_controller(const sensor_msgs::msg::Joy & msg)
         message_odrive.current = torque / torque_constant;
         publisher_odrive->publish(message_odrive);
 
-        RCLCPP_INFO(this->get_logger(), "firing parameters: [speed: %f]", message_odrive.current);
+        RCLCPP_INFO(this->get_logger(), "firing parameters: [speed: %f]", shootVelocity[0]);
     }
 }
 
